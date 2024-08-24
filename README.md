@@ -5,3 +5,7 @@ Implementation of Keycloak in an Ionic-Angular project for IOS &amp; Android
     - ionic start keycloak-login tabs --type=angular --capacitor
 ## Use standalone (The Angular team recommends using standalone components for all new development)
 
+# To build
+    - build:capacitor
+    - build:android
+    - ![alt text](image.png) Click on green button for Android
