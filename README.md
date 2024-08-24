@@ -9,3 +9,5 @@ Implementation of Keycloak in an Ionic-Angular project for IOS &amp; Android
     - build:capacitor
     - build:android
     - ![alt text](image.png) Click on green button for Android
+
+### Task delivered, but as I'm an honest developper, there may be a better a better way to handle Keycloak for Angular https://github.com/mauriciovigolo/keycloak-angular with silentCheckSsoRedirectUri property
