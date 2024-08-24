@@ -133,6 +133,10 @@ export class LoginComponent {
             const refreshTokenVar = data.refresh_token;
 
             // Save tokens in local storage
+            if (!accessToken) {
+                alert('No access token received');
+                return null;
+            }
             localStorage.setItem('accessToken', accessToken);
             localStorage.setItem('refreshToken', refreshTokenVar);
 
