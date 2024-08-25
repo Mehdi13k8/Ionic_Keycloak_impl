@@ -1,33 +1,16 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
-import { KeycloakService, KeycloakAngularModule } from 'keycloak-angular';
-import { APP_INITIALIZER, importProvidersFrom } from '@angular/core';
+import { importProvidersFrom, APP_INITIALIZER } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { AppComponent } from './app/app.component';
+import { provideIonicAngular } from '@ionic/angular/standalone';
+import { Browser } from '@capacitor/browser';
 
-// function initializeKeycloak(keycloak: KeycloakService) {
-//   return () => keycloak.init({
-//     config: {
-//       url: 'https://keycloak.pi.chezo.hu/',
-//       realm: 'mehdi',
-//       clientId: 'ionic-keycloak-login',
-//     },
-//     initOptions: {
-//       onLoad: 'check-sso', // Checks if the user is already logged in
-//       checkLoginIframe: false,
-//     },
-//   });
-// }
+
+
 
 bootstrapApplication(AppComponent, {
   providers: [
-    { provide: IonicRouteStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
-    importProvidersFrom(KeycloakAngularModule),
-    // {
-    //   provide: APP_INITIALIZER,
-    //   useFactory: initializeKeycloak,
-    //   multi: true,
-    //   deps: [KeycloakService],
-    // },
   ],
-});
+}).catch(err => console.log(err));

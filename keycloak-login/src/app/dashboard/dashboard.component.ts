@@ -1,45 +1,52 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { jwtDecode } from 'jwt-decode'; // Correctly import jwtDecode
-import axios from 'axios';
-import { CommonModule } from '@angular/common'; // Import CommonModule
+import { KeycloakService } from 'keycloak-angular';
+import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'app-dashboard',
-    template: `
+  selector: 'app-dashboard',
+  template: `
+  <ion-app>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Dashboard</ion-title>
+      </ion-toolbar>
+    </ion-header>
+      <ion-content class="ion-padding">
     <div>
       <h1>Welcome to the Dashboard!</h1>
-      <div *ngIf="userInfo && userInfo?.username">
+      <div *ngIf="userInfo && userInfo.username">
         <p>Username: {{ userInfo.username }}</p>
         <p>Email: {{ userInfo.email }}</p>
       </div>
     </div>
+    </ion-content>
+  </ion-app>
   `,
-    standalone: true,
-    imports: [IonicModule, CommonModule], // Add CommonModule to the imports array
+  standalone: true,
+  imports: [IonicModule, CommonModule],
 })
 export class DashboardComponent implements OnInit {
-    userInfo: any;
+  userInfo: any;
 
-    ngOnInit() {
-        this.loadUserInfo();
-    }
+  constructor(private keycloakService: KeycloakService) { }
 
-    async loadUserInfo() {
-        const accessToken = localStorage.getItem('accessToken');
-        if (accessToken && accessToken !== 'undefined') {
-            console.log('Access token found:', accessToken);
-            // Decode the token to get user info if present
-            try {
-                const decodedToken: any = jwtDecode(accessToken);
-                this.userInfo = {
-                    username: decodedToken.preferred_username,
-                    email: decodedToken.email,
-                };
-                console.log('User info:', this.userInfo);
-            } catch (error) {
-                console.error('Error decoding token:', error);
-            }
-        }
+  ngOnInit() {
+    alert("gg");
+    this.loadUserInfo();
+  }
+
+  async loadUserInfo() {
+    try {
+      const userProfile = await this.keycloakService.loadUserProfile();
+      console.log('User profile:', userProfile);
+      this.userInfo = {
+        username: userProfile.username,
+        email: userProfile.email,
+      };
+      console.log('User info:', this.userInfo);
+    } catch (error) {
+      console.error('Error loading user profile:', error);
     }
+  }
 }

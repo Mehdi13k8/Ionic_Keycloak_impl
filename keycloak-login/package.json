@@ -29,7 +29,8 @@
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
     "@capacitor/android": "^6.1.2",
-    "@capacitor/app": "6.0.1",
+    "@capacitor/app": "^6.0.1",
+    "@capacitor/browser": "^6.0.2",
     "@capacitor/core": "6.1.2",
     "@capacitor/haptics": "6.0.1",
     "@capacitor/ios": "^6.1.2",
@@ -40,6 +41,7 @@
     "ionicons": "^7.2.1",
     "jwt-decode": "^4.0.0",
     "keycloak-angular": "^16.0.1",
+    "keycloak-js": "^25.0.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

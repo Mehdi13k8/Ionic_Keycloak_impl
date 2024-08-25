@@ -10,4 +10,7 @@ Implementation of Keycloak in an Ionic-Angular project for IOS &amp; Android
     - build:android
     - ![alt text](image.png) Click on green button for Android
 
+# To make redirect work
+    - Add url redirect used in your Keycloak to redirect to mobile app ![alt text](image-1.png)
+
 ### Task delivered, but as I'm an honest developper, there may be a better a better way to handle Keycloak for Angular https://github.com/mauriciovigolo/keycloak-angular with silentCheckSsoRedirectUri property
