@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">keycloak-login</string>
+    <string name="title_activity_main">keycloak-login</string>
+    <string name="package_name">com.keycloaklogin.app</string>
+</resources>

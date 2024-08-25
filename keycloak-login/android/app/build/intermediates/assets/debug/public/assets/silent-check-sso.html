@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silent Check SSO</title>
+</head>
+<body>
+    <script>
+        // Post message back to the parent window
+        if (window.opener) {
+            window.opener.postMessage(window.location.href, '*');
+        } else if (window.parent !== window) {
+            window.parent.postMessage(window.location.href, '*');
+        } else {
+            console.error('SSO silent check: unable to post message');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+	"appId": "com.keycloaklogin.app",
+	"appName": "keycloak-login",
+	"webDir": "www",
+	"server": {
+		"hostname": "com.keycloaklogin.app.local",
+		"androidScheme": "http"
+	},
+	"plugins": {
+		"CapacitorHttp": {
+			"enabled": true
+		}
+	},
+	"packageClassList": [
+		"AppPlugin",
+		"CAPBrowserPlugin",
+		"HapticsPlugin",
+		"KeyboardPlugin",
+		"StatusBarPlugin"
+	]
+}
